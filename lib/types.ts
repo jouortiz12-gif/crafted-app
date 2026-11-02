@@ -1,0 +1,76 @@
+export type Lang = "es" | "en" | "fr" | "zh" | "ru";
+export type Translation = {
+  style?: string;
+  name: string;
+  description: string;
+  ingredients: string;
+  preparation: string;
+};
+export type Product = {
+  family?: string;
+  options?: { label: string; price: number }[];
+  ibuKnown?: boolean;
+  abvKnown?: boolean;
+  imagePending?: boolean;
+  isAddon?: boolean;
+  priceKnown?: boolean;
+  sourceUrl?: string;
+  id: string;
+  name: string;
+  category: string;
+  style: string;
+  description: string;
+  ingredients: string;
+  preparation: string;
+  price: number;
+  size: string;
+  abv: number;
+  ibu: number;
+  profile: string;
+  allergens: string[];
+  popular: boolean;
+  available: boolean;
+  image: string;
+  video: string;
+  pairing: string;
+  translations: Partial<Record<Lang, Translation>>;
+};
+export type Category = {
+  id: string;
+  name: string;
+  names: Partial<Record<Lang, string>>;
+  icon: string;
+};
+export type Bar = {
+  tableCount?: number;
+  reviewUrl?: string;
+  whatsappNumber?: string;
+  baseCurrency?: "USD" | "MXN";
+  sourceLanguage?: Lang;
+  menuNotes?: string;
+  website?: string;
+  instagram?: string;
+  maps?: string;
+  translations?: Partial<
+    Record<Lang, { tagline: string; promotion: string; hours: string }>
+  >;
+  id: string;
+  slug: string;
+  revision: number;
+  name: string;
+  tagline: string;
+  location: string;
+  hours: string;
+  promotion: string;
+  accent: string;
+  logo: string;
+  banner: string;
+  bannerVideo: string;
+  notes: string;
+  rates: { USD: number; EUR: number; MXN?: number };
+  rateMode: "manual" | "auto";
+  rateDate: string;
+  categories: Category[];
+  products: Product[];
+  demo: boolean;
+};
